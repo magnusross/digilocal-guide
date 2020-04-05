@@ -18,9 +18,7 @@ def my_tree(animal):
         else:
             return 1 
 
-bear_row = data_train.iloc[3]
-print(my_tree(bear_row))
-
+            
 def get_predictions(data):
 
     predictions = []
