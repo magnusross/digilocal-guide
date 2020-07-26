@@ -46,4 +46,22 @@ auto_tree = auto_tree.fit(data_train.drop(columns='animal name'), ans_train)
 
 auto_preds = auto_tree.predict(data_train.drop(columns='animal name'))
 
-test_predictions(auto_preds, ans_train) 
+
+while True: 
+    new_info = []
+    print('Tell me the following information about your animal:')
+    for attribute in data_train.columns[1:]:
+        ans = input('Animal has/is %s? (y/n)\n>'%attribute)
+        if ans == 'y':
+            new_info.append(1)
+        else:
+            new_info.append(0)
+        
+    pred = auto_tree.predict([new_info])
+    
+    if pred[0] == 1:
+        print('I think you animal is a predator\n!') 
+    else:
+        print('I think you animal is not a predator\n!') 
+                
+
